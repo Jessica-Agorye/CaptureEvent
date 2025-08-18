@@ -1,14 +1,8 @@
-import { useState, type SetStateAction } from "react";
 import NavMenu from "../components/NavMenu";
 import MeteorRain from "../assets/images/meteor-rain.gif";
 
 const HeroSection = () => {
-  const [selectedItems, setSlectedItems] = useState("");
   const options = ["Photgraphy", "Catering", "Decoration", "Planning"];
-
-  const handleChange = (e: { target: { value: SetStateAction<string> } }) => {
-    setSlectedItems(e.target.value);
-  };
 
   return (
     <>
@@ -19,11 +13,7 @@ const HeroSection = () => {
 
         <div className="bg-slate-200 py-4 px-10 mt-10 flex">
           <div>
-            <select
-              value={selectedItems}
-              onChange={handleChange}
-              className="border border-b-neutral-400 shadow-2xl rounded ml-10"
-            >
+            <select className="border-2 border-gray-300 p-2 shadow-2xl rounded-lg ml-10">
               <option value=""> Vendors </option>
               {options.map((option, index) => (
                 <option key={index} value={option}>
@@ -33,12 +23,8 @@ const HeroSection = () => {
             </select>
           </div>
           <div>
-            <select
-              value={selectedItems}
-              onChange={handleChange}
-              className="border border-b-neutral-400 shadow-2xl rounded ml-10"
-            >
-              <option value=""> Vendors </option>
+            <select className="border-2 border-gray-300 p-2 shadow-2xl rounded-lg ml-10">
+              <option value=""> Budget </option>
               {options.map((option, index) => (
                 <option key={index} value={option}>
                   {option}{" "}
@@ -47,12 +33,8 @@ const HeroSection = () => {
             </select>
           </div>
           <div>
-            <select
-              value={selectedItems}
-              onChange={handleChange}
-              className="border border-b-neutral-400 shadow-2xl rounded ml-10"
-            >
-              <option value=""> Vendors </option>
+            <select className="border-2 border-gray-300 p-2 shadow-2xl rounded-lg ml-10">
+              <option value=""> State </option>
               {options.map((option, index) => (
                 <option key={index} value={option}>
                   {option}{" "}
