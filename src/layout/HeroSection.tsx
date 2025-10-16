@@ -2,7 +2,9 @@ import NavMenu from "../components/NavMenu";
 import MeteorRain from "../assets/images/meteor-rain.gif";
 
 const HeroSection = () => {
-  const options = ["Photgraphy", "Catering", "Decoration", "Planning"];
+  const vendors = ["Photgraphy", "Catering", "Decoration", "Planning"];
+  const budget = ["$500 - $1000", "$1000 - $2000", "$2000 - $5000"];
+  const states = ["California", "Texas", "New York", "Florida"];
 
   return (
     <>
@@ -15,7 +17,7 @@ const HeroSection = () => {
           <div>
             <select className="border-2 border-gray-300 p-2 shadow-2xl rounded-lg ml-10">
               <option value=""> Vendors </option>
-              {options.map((option, index) => (
+              {vendors.map((option, index) => (
                 <option key={index} value={option}>
                   {option}{" "}
                 </option>
@@ -25,7 +27,7 @@ const HeroSection = () => {
           <div>
             <select className="border-2 border-gray-300 p-2 shadow-2xl rounded-lg ml-10">
               <option value=""> Budget </option>
-              {options.map((option, index) => (
+              {budget.map((option, index) => (
                 <option key={index} value={option}>
                   {option}{" "}
                 </option>
@@ -35,7 +37,7 @@ const HeroSection = () => {
           <div>
             <select className="border-2 border-gray-300 p-2 shadow-2xl rounded-lg ml-10">
               <option value=""> State </option>
-              {options.map((option, index) => (
+              {states.map((option, index) => (
                 <option key={index} value={option}>
                   {option}{" "}
                 </option>
