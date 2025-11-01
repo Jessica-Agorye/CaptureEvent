@@ -1,28 +1,13 @@
-import HeroSection from "../layout/HeroSection";
-import AboutSection from "../layout/AboutSection";
-import MainSection from "../layout/MainSection";
-import Footer from "../layout/Footer";
+import { Route, Routes } from "react-router-dom";
+import Homepage from "../home/Homepage";
+import Photography from "../pages/Photography";
+
 const ScreenPage = () => {
   return (
-    <>
-      <div>
-        <HeroSection />
-      </div>
-
-      <div className="mt-20 mx-40">
-        {" "}
-        <AboutSection />
-      </div>
-
-      <div className="mt-20 mx-40 mb-30">
-        {" "}
-        <MainSection />
-      </div>
-
-      <div>
-        <Footer />
-      </div>
-    </>
+    <Routes>
+      <Route path="/" element={<Homepage />} />
+      <Route path="/find-photographers" element={<Photography />} />
+    </Routes>
   );
 };
 
