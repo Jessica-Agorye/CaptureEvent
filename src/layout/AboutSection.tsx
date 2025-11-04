@@ -27,12 +27,12 @@ const AboutSection = () => {
           }
         />
         <Cards
-          title="The Card"
+          title="Top Makeup Artistes"
           imageUrl=""
           description="I am the description two"
           button={
             <button className="absolute bottom-9 -right-9  py-6 px-4 bg-amber-300 text-white animate-bounce">
-              Find Photographers
+              Find Makeup Artistes
             </button>
           }
         />
