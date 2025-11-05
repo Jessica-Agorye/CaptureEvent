@@ -1,72 +1,78 @@
 import { useState } from "react";
+import { Menu, X } from "lucide-react"; // optional for icons, install with: npm i lucide-react
 
 const NavMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="mt-10 ">
-      <div className=" justify-between flex md:justify-around p-4">
-        <div className="text-2xl font-bold">CaptureEvent</div>
-        <div className="hidden md:flex  ">
-          {" "}
+    <nav className="bg-white shadow-md">
+      <div className="flex items-center justify-between px-6 py-4 md:px-10">
+        {/* Logo */}
+        <div className="text-2xl font-bold text-amber-800">CaptureEvent</div>
+
+        {/* Search Input (visible only on md and up) */}
+        <div className="hidden md:flex">
           <input
             type="text"
-            className=" pl-2 border-2 border-amber-800 rounded-xl h-[30px] w-[350px]"
+            className="pl-2 border-2 border-amber-800 rounded-xl h-[35px] w-[300px] md:w-[350px] focus:outline-none"
             placeholder="Find vendors"
           />
         </div>
-        <div className="flex">
-          <ul className=" hidden text-lg md:flex gap-6">
-            <li>About Us</li>
-            <li>Services</li>
-            <li>FAQ</li>
-            <li></li>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-8">
+          <ul className="flex gap-6 text-lg">
+            <li className="cursor-pointer hover:text-amber-800">About Us</li>
+            <li className="cursor-pointer hover:text-amber-800">Services</li>
+            <li className="cursor-pointer hover:text-amber-800">FAQ</li>
           </ul>
 
           <div className="flex gap-4">
-            {" "}
-            <button className="bg-black text-white px-6 rounded-lg">
-              Sign Up{" "}
+            <button className="bg-black text-white px-5 py-1.5 rounded-lg hover:bg-gray-800">
+              Sign Up
             </button>
-            <button className="bg-slate-700 text-white px-6 rounded-lg">
+            <button className="bg-slate-700 text-white px-5 py-1.5 rounded-lg hover:bg-slate-600">
               Sign In
             </button>
           </div>
-
-          {isOpen && (
-            <div>
-              <button onClick={toggleMenu} className="md:hidden">
-                Hamburger
-              </button>
-            </div>
-          )}
         </div>
-        {/* Add hmaburger menu here */}
 
-        {/* For Mobile View */}
-
-        {!isOpen && (
-          <div className="bg-red-300  md:hidden">
-            <button onClick={toggleMenu}>Close</button>
-            <p>lorem</p>
-            <p>lorem</p>
-
-            <div className="flex gap-4">
-              {" "}
-              <button className="bg-black text-white px-4 rounded-2xl">
-                Sign Up{" "}
-              </button>
-              <button className="bg-slate-700 text-white px-4 rounded-2xl">
-                Sign In
-              </button>
-            </div>
-          </div>
-        )}
+        {/* Hamburger Menu Button (mobile only) */}
+        <div className="md:hidden">
+          <button onClick={toggleMenu}>
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Dropdown Menu */}
+      {isOpen && (
+        <div className="md:hidden bg-amber-50 px-6 py-4 space-y-4 transition-all duration-300 ease-in-out">
+          <ul className="flex flex-col gap-3 text-lg">
+            <li className="cursor-pointer hover:text-amber-800">About Us</li>
+            <li className="cursor-pointer hover:text-amber-800">Services</li>
+            <li className="cursor-pointer hover:text-amber-800">FAQ</li>
+          </ul>
+
+          {/* Search bar for mobile */}
+          <input
+            type="text"
+            className="w-full pl-2 border-2 border-amber-800 rounded-xl h-[35px] focus:outline-none"
+            placeholder="Find vendors"
+          />
+
+          <div className="flex flex-col sm:flex-row gap-3 pt-3">
+            <button className="bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800">
+              Sign Up
+            </button>
+            <button className="bg-slate-700 text-white px-5 py-2 rounded-lg hover:bg-slate-600">
+              Sign In
+            </button>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

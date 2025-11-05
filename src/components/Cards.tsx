@@ -5,25 +5,30 @@ type CardProps = {
   button?: React.ReactNode;
 };
 
-const DoubleCards: React.FC<CardProps> = ({
-  imageUrl,
-  title,
-  description,
-  button,
-}) => {
+const Cards: React.FC<CardProps> = ({ imageUrl, title, description, button }) => {
   return (
-    <>
-      <div>
-        <div className=" bg-black text-white w-full h-96 ">
-          {imageUrl}
-          <p className="text-2xl font-bold pl-10 pt-30">{title}</p>
-          <p className="text-lg pl-10 mt-2 italic">{description}</p>
-
-          {button}
-        </div>
+    <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col h-full">
+      {/* Image Section */}
+      <div className="w-full h-56 sm:h-64 lg:h-72 overflow-hidden">
+        {imageUrl}
       </div>
-    </>
+
+      {/* Content Section */}
+      <div className="flex flex-col justify-between flex-1 p-6 text-center sm:text-left">
+        <div>
+          <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-2">
+            {title}
+          </h3>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+            {description}
+          </p>
+        </div>
+
+        {/* Optional Button */}
+        {button && <div className="mt-6">{button}</div>}
+      </div>
+    </div>
   );
 };
 
-export default DoubleCards;
+export default Cards;
