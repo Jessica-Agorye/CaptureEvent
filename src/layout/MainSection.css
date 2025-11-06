@@ -1,0 +1,42 @@
+/* Elegant Swiper Controls */
+.swiper-button-prev,
+.swiper-button-next {
+  width: 36px;
+  height: 36px;
+  background-color: #fdf5f0;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  color: #444;
+  transition: all 0.3s ease;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background-color: #f7e9de;
+  transform: scale(1.08);
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.swiper-pagination-bullet {
+  background-color: #e6cfc0 !important;
+  opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #dcbfaa !important;
+  opacity: 1;
+}
+
+/* Smooth slide transition */
+.swiper-slide {
+  transition: transform 0.4s ease-in-out;
+}
+
+.swiper-slide:hover {
+  transform: translateY(-6px);
+}

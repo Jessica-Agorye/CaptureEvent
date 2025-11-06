@@ -1,68 +1,112 @@
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
+import "./MainSection.css";
+
 const MainSection = () => {
   const services = [
     {
       title: "Photography",
       description:
-        "Preserve timeless moments with professional photographers who bring every detail to life.",
+        "Preserve timeless memories with professional photographers who capture your best moments.",
       imageUrl:
-        "https://images.unsplash.com/photo-1504215680853-026ed2a45def?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1511765224389-37f0e77cf0eb?auto=format&fit=crop&w=900&q=80",
       buttonText: "Explore Photographers",
     },
     {
       title: "Catering",
       description:
-        "Indulge your guests with curated dishes crafted by top-tier caterers for unforgettable experiences.",
+        "Treat your guests to exquisite dishes prepared by top-tier event caterers.",
       imageUrl:
-        "https://images.unsplash.com/photo-1525610553991-2bede1a236e2?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=900&q=80",
       buttonText: "Explore Caterers",
     },
     {
-      title: "Decoration",
+      title: "Event Planners",
       description:
-        "Transform your venue with creative decorators who blend color, texture, and ambiance effortlessly.",
-      // ✅ Replaced with a reliable, elegant decor image
+        "Let expert planners handle every detail so you can enjoy your day stress-free.",
       imageUrl:
-        "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=900&q=80",
-      buttonText: "Explore Decorators",
+        "https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=900&q=80",
+      buttonText: "Meet Planners",
+    },
+    {
+      title: "Decor & Styling",
+      description:
+        "Transform your venue with artistic decorators who bring your vision to life.",
+      imageUrl:
+        "https://images.unsplash.com/photo-1525610553991-2bede1a236e2?auto=format&fit=crop&w=900&q=80",
+      buttonText: "Find Decorators",
+    },
+    {
+      title: "Music & DJs",
+      description:
+        "Keep the energy alive with professional DJs and live performers.",
+      imageUrl:
+        "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=80",
+      buttonText: "Explore DJs",
+    },
+    {
+      title: "Florists",
+      description:
+        "Add elegance and fragrance to your event with stunning floral designs.",
+      imageUrl:
+        "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=900&q=80",
+      buttonText: "Discover Florists",
     },
   ];
 
   return (
-    <section className="px-6 md:px-16 lg:px-24 py-24 bg-[#FFF8F4] min-h-screen">
-      <div className="max-w-6xl mx-auto text-center">
+    <section className="px-6 md:px-16 lg:px-24 py-20 bg-[#FFF8F4]">
+      <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-semibold text-[#3E3E3E] mb-8 tracking-wide">
-          Discover Our Services
+          Discover More Services
         </h2>
         <p className="text-[#6E6E6E] text-lg md:text-xl max-w-3xl mx-auto mb-16 font-light leading-relaxed">
-          From photography to fine dining, our trusted professionals bring
-          elegance and creativity to every celebration.
+          From photographers to florists, find everything you need to make your
+          event unforgettable.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          spaceBetween={30}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 3500, disableOnInteraction: false }}
+          speed={800}
+          breakpoints={{
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+          className="pb-12"
+        >
           {services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-[#FFEAE3] rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-[#FCE1A8]/40"
-            >
-              <img
-                src={service.imageUrl}
-                alt={service.title}
-                className="w-full h-72 object-cover"
-              />
-              <div className="p-6 text-left">
-                <h3 className="text-2xl font-semibold text-[#2E2E2E] mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-[#555] text-base leading-relaxed mb-6">
-                  {service.description}
-                </p>
-                <button className="px-5 py-2.5 bg-[#FCE1A8] text-[#3E3E3E] rounded-full hover:bg-[#F9D77E] transition duration-200 font-medium">
-                  {service.buttonText}
-                </button>
+            <SwiperSlide key={index}>
+              <div className="bg-[#FFEFE6] rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-[#FCE1A8]/40 transform hover:scale-[1.02]">
+                <img
+                  src={service.imageUrl}
+                  alt={service.title}
+                  className="w-full h-72 object-cover"
+                />
+                <div className="p-6 text-left">
+                  <h3 className="text-2xl font-medium text-[#2E2E2E] mb-3 tracking-wide">
+                    {service.title}
+                  </h3>
+                  <p className="text-[#555] text-base leading-relaxed mb-6">
+                    {service.description}
+                  </p>
+                  <button className="px-5 py-2.5 bg-[#FCE1A8] text-[#3E3E3E] rounded-full hover:bg-[#F9D77E] transition duration-200 font-medium">
+                    {service.buttonText}
+                  </button>
+                </div>
               </div>
-            </div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
     </section>
   );

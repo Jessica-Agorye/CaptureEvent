@@ -2,7 +2,7 @@ import HeroSection from "../layout/HeroSection";
 import AboutSection from "../layout/AboutSection";
 import MainSection from "../layout/MainSection";
 import Footer from "../layout/Footer";
-import Photography from "../pages/Photography";
+
 const Homepage = () => {
   return (
     <>
@@ -22,10 +22,6 @@ const Homepage = () => {
 
       <div>
         <Footer />
-      </div>
-
-      <div>
-        <Photography />
       </div>
     </>
   );
