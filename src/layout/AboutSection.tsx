@@ -49,7 +49,10 @@ const AboutSection = () => {
           }
           description="Book top-rated makeup artists for your events."
           button={
-            <button className="mt-6 py-3 px-5 bg-amber-500 text-white font-medium rounded-lg hover:bg-amber-600 transition-all duration-200 w-full sm:w-auto">
+            <button
+              onClick={() => navigate("/find-makeup-artistes")}
+              className="mt-6 py-3 px-5 bg-amber-500 text-white font-medium rounded-lg hover:bg-amber-600 transition-all duration-200 w-full sm:w-auto"
+            >
               Find Makeup Artistes
             </button>
           }

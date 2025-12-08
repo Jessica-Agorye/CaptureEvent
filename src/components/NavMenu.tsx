@@ -25,7 +25,7 @@ const NavMenu = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
           <ul className="flex gap-6 text-lg font-medium">
-            {["About Us", "Services", "FAQ"].map((item) => (
+            {["Services", "FAQ"].map((item) => (
               <li key={item} className="cursor-pointer relative group">
                 {item}
                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-amber-700 transition-all group-hover:w-full"></span>
