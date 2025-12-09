@@ -1,52 +1,19 @@
-const makeupartistes = [
-  {
-    id: 1,
-    name: "Lara James",
-    city: "Lagos",
-    rating: 4.8,
-    price: "$200/session",
-    image:
-      "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    id: 2,
-    name: "David Osei",
-    city: "Accra",
-    rating: 4.5,
-    price: "$180/session",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    id: 3,
-    name: "Mia Benson",
-    city: "Nairobi",
-    rating: 4.9,
-    price: "$250/session",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    id: 4,
-    name: "Tunde Bello",
-    city: "Abuja",
-    rating: 4.6,
-    price: "$190/session",
-    image:
-      "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    id: 5,
-    name: "Fatima Said",
-    city: "Cairo",
-    rating: 4.7,
-    price: "$210/session",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80",
-  },
-];
+import { useState } from "react";
+
+import { makeupartistes } from "../data/makeupartisteData";
+import type { MakeupArtiste } from "../data/makeupartisteData";
 
 const MakupArtistes = () => {
+  const [filteredData, setFilteredData] =
+    useState<MakeupArtiste[]>(makeupartistes);
+
+  const filterByLocation = (location: string) => {
+    const filtered = makeupartistes.filter(
+      (artiste: { city: string }) => artiste.city === location
+    );
+    setFilteredData(filtered);
+  };
+
   return (
     <div>
       <div>
@@ -60,7 +27,10 @@ const MakupArtistes = () => {
           {/* Location Filter */}
           <div className="mb-6">
             <h3 className="text-gray-600 font-medium mb-2">Location</h3>
-            <select className="w-full border border-gray-300 rounded-lg p-2 focus:ring focus:ring-indigo-200">
+            <select
+              onChange={(e) => filterByLocation(e.target.value)}
+              className="w-full border border-gray-300 rounded-lg p-2 focus:ring focus:ring-indigo-200"
+            >
               <option>All</option>
               <option>Lagos</option>
               <option>Accra</option>
@@ -99,7 +69,7 @@ const MakupArtistes = () => {
 
           {/* Grid layout for cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {makeupartistes.map((artistes) => (
+            {filteredData.map((artistes) => (
               <div
                 key={artistes.id}
                 className="bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-lg transition"

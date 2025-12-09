@@ -1,4 +1,4 @@
-export type Photographer = {
+export type MakeupArtiste = {
   id: number;
   name: string;
   city: string;
@@ -7,7 +7,7 @@ export type Photographer = {
   image: string;
 };
 
-export const photographers: Photographer[] = [
+export const makeupartistes: MakeupArtiste[] = [
   {
     id: 1,
     name: "Lara James",

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { photographers } from "../data/photographerData";
+import type { Photographer } from "../data/photographerData";
 
 export const Photography = () => {
   const [filteredData, setFilteredData] =
-    useState<photographers[]>(photographers);
-
+    useState<Photographer[]>(photographers);
   const filterByLocation = (location: string) => {
     const filtered = photographers.filter(
       (photographer: { city: string }) => photographer.city === location
