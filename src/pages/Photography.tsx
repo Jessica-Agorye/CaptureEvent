@@ -1,9 +1,16 @@
 import { useState } from "react";
 import { photographers } from "../data/photographerData";
 
-const Photography = () => {
-  const [] = useState("");
+export const Photography = () => {
+  const [filteredData, setFilteredData] =
+    useState<photographers[]>(photographers);
 
+  const filterByLocation = (location: string) => {
+    const filtered = photographers.filter(
+      (photographer: { city: string }) => photographer.city === location
+    );
+    setFilteredData(filtered);
+  };
   return (
     <div>
       <div>
@@ -17,7 +24,10 @@ const Photography = () => {
           {/* Location Filter */}
           <div className="mb-6">
             <h3 className="text-gray-600 font-medium mb-2">Location</h3>
-            <select className="w-full border border-gray-300 rounded-lg p-2 focus:ring focus:ring-indigo-200">
+            <select
+              onChange={(e) => filterByLocation(e.target.value)}
+              className="w-full border border-gray-300 rounded-lg p-2 focus:ring focus:ring-indigo-200"
+            >
               <option>All</option>
               <option>Lagos</option>
               <option>Accra</option>
@@ -56,7 +66,7 @@ const Photography = () => {
 
           {/* Grid layout for cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {photographers.map((photographer) => (
+            {filteredData.map((photographer) => (
               <div
                 key={photographer.id}
                 className="bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-lg transition"
@@ -89,5 +99,3 @@ const Photography = () => {
     </div>
   );
 };
-
-export default Photography;

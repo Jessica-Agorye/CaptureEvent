@@ -1,4 +1,13 @@
-export const photographers = [
+type Photographer = {
+  id: number;
+  name: string;
+  city: string;
+  rating: number;
+  price: string;
+  image: string;
+};
+
+export const photographers: Photographer[] = [
   {
     id: 1,
     name: "Lara James",
