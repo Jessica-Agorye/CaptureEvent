@@ -1,5 +1,4 @@
-// 👇 Hardcoded sample photographers (you’ll replace this with API data later)
-const photographers = [
+const makeupartistes = [
   {
     id: 1,
     name: "Lara James",
@@ -46,6 +45,7 @@ const photographers = [
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80",
   },
 ];
+
 const MakupArtistes = () => {
   return (
     <div>
@@ -94,34 +94,32 @@ const MakupArtistes = () => {
         {/* 📸 Main content area */}
         <main className="flex-1 p-6">
           <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center md:text-left">
-            Photographers Directory
+            makeupartistes Directory
           </h1>
 
           {/* Grid layout for cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {photographers.map((photographer) => (
+            {makeupartistes.map((artistes) => (
               <div
-                key={photographer.id}
+                key={artistes.id}
                 className="bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-lg transition"
               >
                 {/* Image */}
                 <img
-                  src={photographer.image}
-                  alt={photographer.name}
+                  src={artistes.image}
+                  alt={artistes.name}
                   className="w-full h-48 object-cover"
                 />
 
                 {/* Card content */}
                 <div className="p-4">
                   <h2 className="text-lg font-semibold text-gray-800">
-                    {photographer.name}
+                    {artistes.name}
                   </h2>
-                  <p className="text-gray-500">📍 {photographer.city}</p>
-                  <p className="text-yellow-500 mt-1">
-                    ⭐ {photographer.rating}
-                  </p>
+                  <p className="text-gray-500">📍 {artistes.city}</p>
+                  <p className="text-yellow-500 mt-1">⭐ {artistes.rating}</p>
                   <p className="text-indigo-600 font-medium mt-2">
-                    {photographer.price}
+                    {artistes.price}
                   </p>
                 </div>
               </div>

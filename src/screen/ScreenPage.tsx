@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Homepage from "../home/Homepage";
 import Photography from "../pages/Photography";
-import MakupArtistes from "../pages/MakupArtistes";
+import MakupArtistes from "../pages/MakeupArtistes";
 
 const ScreenPage = () => {
   return (
