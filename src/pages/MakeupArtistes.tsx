@@ -9,7 +9,7 @@ const MakupArtistes = () => {
 
   const filterByLocation = (location: string) => {
     const filtered = makeupartistes.filter(
-      (artiste: { city: string }) => artiste.city === location
+      (artiste) => artiste.city === location
     );
     setFilteredData(filtered);
   };

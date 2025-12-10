@@ -7,7 +7,7 @@ export const Photography = () => {
     useState<Photographer[]>(photographers);
   const filterByLocation = (location: string) => {
     const filtered = photographers.filter(
-      (photographer: { city: string }) => photographer.city === location
+      (photographer) => photographer.city === location
     );
     setFilteredData(filtered);
   };
