@@ -5,12 +5,24 @@ import type { Photographer } from "../data/photographerData";
 export const Photography = () => {
   const [filteredData, setFilteredData] =
     useState<Photographer[]>(photographers);
+
+  const [maxPrice, setMaxPrice] = useState(300);
   const filterByLocation = (location: string) => {
     const filtered = photographers.filter(
       (photographer) => photographer.city === location
     );
     setFilteredData(filtered);
   };
+
+  const filterByPrice = (max: number) => {
+    const filtered = photographers.filter((p) => {
+      const numericPrice = Number(p.price.replace(/[^0-9]/g, ""));
+      return numericPrice <= max;
+    });
+
+    setFilteredData(filtered);
+  };
+
   return (
     <div>
       <div>
@@ -44,11 +56,17 @@ export const Photography = () => {
               type="range"
               min="100"
               max="300"
+              value={maxPrice}
+              onChange={(e) => {
+                const value = Number(e.target.value);
+                setMaxPrice(value);
+                filterByPrice(value);
+              }}
               className="w-full accent-indigo-500"
             />
             <div className="flex justify-between text-sm text-gray-500">
-              <span>$100</span>
-              <span>$300+</span>
+              <span>${100}</span>
+              <span>${maxPrice}+</span>
             </div>
           </div>
 
