@@ -64,7 +64,10 @@ const AboutSection = () => {
         <Cards
           title="Event Planners"
           imageUrl={
-            <div className="h-56 w-full bg-gradient-to-r from-blue-200 to-indigo-100 rounded-2xl shadow-md hover:scale-105 transition-transform duration-300 flex items-center justify-center text-gray-600 font-medium">
+            <div
+              onClick={() => navigate("/find-event-planners")}
+              className="h-56 w-full bg-gradient-to-r from-blue-200 to-indigo-100 rounded-2xl shadow-md hover:scale-105 transition-transform duration-300 flex items-center justify-center text-gray-600 font-medium"
+            >
               Event Planning
             </div>
           }
