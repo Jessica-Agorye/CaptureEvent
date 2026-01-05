@@ -3,6 +3,7 @@ import Homepage from "../home/Homepage";
 import { Photography } from "../pages/Photography";
 import MakupArtistes from "../pages/MakeupArtistes";
 import EventPlanning from "../pages/EventPlanning";
+import EventPlannerDetails from "../pages/EventPlannerDetails";
 
 const ScreenPage = () => {
   return (
@@ -11,6 +12,11 @@ const ScreenPage = () => {
       <Route path="/find-photographers" element={<Photography />} />
       <Route path="/find-makeup-artistes" element={<MakupArtistes />} />
       <Route path="/find-event-planners" element={<EventPlanning />} />
+
+      <Route
+        path="/find-event-planners/:id"
+        element={<EventPlannerDetails />}
+      />
     </Routes>
   );
 };

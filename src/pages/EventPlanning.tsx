@@ -23,7 +23,7 @@ const EventPlanning = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-[16rem_1fr] gap-6 mt-10">
       {/* Sidebar */}
-      <h1 className="text-red-500">EventPlanning is rendering</h1>
+
       <aside className="p-6 shadow-md rounded-lg">
         <h2 className="text-lg font-semibold text-gray-800 mb-4">Filters</h2>
 
@@ -51,7 +51,7 @@ const EventPlanning = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredData.map((planner) => (
-            <Link to={`/event-planners/${planner.id}`} key={planner.id}>
+            <Link to={`/find-event-planners/${planner.id}`} key={planner.id}>
               <div className="bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-lg transition">
                 <img
                   src={planner.image}

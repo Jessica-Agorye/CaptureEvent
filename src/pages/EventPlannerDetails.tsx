@@ -2,7 +2,11 @@ import { useParams } from "react-router-dom";
 import { Eventplanners } from "../data/eventPlannersData";
 
 const EventPlannerDetails = () => {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
+
+  if (!id) {
+    return <p>Invalid planner ID</p>;
+  }
 
   const planner = Eventplanners.find((planner) => planner.id === Number(id));
 
@@ -21,9 +25,7 @@ const EventPlannerDetails = () => {
       <h1 className="text-3xl font-bold mt-6">{planner.name}</h1>
 
       <p className="text-gray-500 mt-2">📍 {planner.city}</p>
-
       <p className="text-yellow-500 mt-2">⭐ {planner.rating}</p>
-
       <p className="text-indigo-600 font-semibold mt-4">{planner.price}</p>
     </div>
   );
