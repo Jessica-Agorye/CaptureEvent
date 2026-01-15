@@ -4,7 +4,7 @@ import { Photography } from "../pages/Photography";
 import MakupArtistes from "../pages/MakeupArtistes";
 import EventPlanning from "../pages/EventPlanning";
 import EventPlannerDetails from "../pages/EventPlannerDetails";
-
+import { BookNowPage } from "../pages/BookNowPage";
 const ScreenPage = () => {
   return (
     <Routes>
@@ -17,6 +17,7 @@ const ScreenPage = () => {
         path="/find-event-planners/:id"
         element={<EventPlannerDetails />}
       />
+      <Route path="/book-now" element={<BookNowPage />} />
     </Routes>
   );
 };

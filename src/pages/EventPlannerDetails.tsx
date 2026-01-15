@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { Eventplanners } from "../data/eventPlannersData";
+import { Link } from "react-router-dom";
 
 const EventPlannerDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -55,9 +56,11 @@ const EventPlannerDetails = () => {
                 {planner.price}
               </p>
 
-              <button className="w-full mt-6 bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-xl font-medium transition">
-                Book Now
-              </button>
+              <Link to="/book-now">
+                <button className="w-full mt-3 border border-gray-300 py-3 rounded-xl font-medium hover:bg-gray-50 transition">
+                  Book Now
+                </button>
+              </Link>
 
               <button className="w-full mt-3 border border-gray-300 py-3 rounded-xl font-medium hover:bg-gray-50 transition">
                 Contact Planner
