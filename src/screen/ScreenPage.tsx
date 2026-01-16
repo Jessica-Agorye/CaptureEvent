@@ -17,7 +17,7 @@ const ScreenPage = () => {
         path="/find-event-planners/:id"
         element={<EventPlannerDetails />}
       />
-      <Route path="/book-now" element={<BookNowPage />} />
+      <Route path="/book-now/:id" element={<BookNowPage />} />
     </Routes>
   );
 };

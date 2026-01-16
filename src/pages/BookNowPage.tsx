@@ -2,7 +2,7 @@ import { Eventplanners } from "../data/eventPlannersData";
 import { useParams } from "react-router-dom";
 
 export const BookNowPage = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams();
   const planner = Eventplanners.find((planner) => planner.id === Number(id));
 
   if (!planner) {
@@ -17,9 +17,7 @@ export const BookNowPage = () => {
         <p className="text-center text-gray-600 mb-8">
           Complete your booking with the event planner.
         </p>
-        <div>
-          <p>{planner.name}</p>
-        </div>
+        <div></div>
       </div>
     </div>
   );

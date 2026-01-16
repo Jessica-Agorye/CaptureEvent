@@ -56,7 +56,7 @@ const EventPlannerDetails = () => {
                 {planner.price}
               </p>
 
-              <Link to="/book-now">
+              <Link to={`/book-now/${planner.id}`}>
                 <button className="w-full mt-3 border border-gray-300 py-3 rounded-xl font-medium hover:bg-gray-50 transition">
                   Book Now
                 </button>
