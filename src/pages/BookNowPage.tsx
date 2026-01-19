@@ -17,7 +17,19 @@ export const BookNowPage = () => {
         <p className="text-center text-gray-600 mb-8">
           Complete your booking with the event planner.
         </p>
-        <div></div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        <div>
+          {" "}
+          <img src={planner.image} alt="" />
+        </div>
+
+        <div>
+          <h2>{planner.name}</h2>
+        </div>
+
+        <form action=""></form>
       </div>
     </div>
   );
