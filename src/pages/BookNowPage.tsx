@@ -1,13 +1,26 @@
 import { Eventplanners } from "../data/eventPlannersData";
 import { useParams } from "react-router-dom";
+import { useForm, type SubmitHandler } from "react-hook-form";
+
+type FormData = {
+  email: string;
+  password: string;
+};
 
 export const BookNowPage = () => {
+  const { register, handleSubmit } = useForm<FormData>();
+  const onSubmit: SubmitHandler<FormData> = (data) => {
+    console.log(data);
+  };
+  //makes data properly typed
+
   const { id } = useParams();
   const planner = Eventplanners.find((planner) => planner.id === Number(id));
 
   if (!planner) {
     return <p className="text-center mt-20">Planner not found</p>;
   }
+
   return (
     <div>
       <div className="max-w-6xl mx-auto px-6">
@@ -26,10 +39,26 @@ export const BookNowPage = () => {
         </div>
 
         <div>
-          <h2>{planner.name}</h2>
+          <div>
+            <h2>{planner.name}</h2>
+          </div>
+          <br />
+          <div>
+            <form action="" onSubmit={handleSubmit(onSubmit)}>
+              <input {...register("email")} type="text" placeholder="Email" />
+              <br />
+              <input
+                {...register("password")}
+                type="password"
+                placeholder="Password"
+              />
+              <br />
+              <button className="border border-amber-600 p-2" type="submit">
+                Confirm Booking
+              </button>
+            </form>
+          </div>
         </div>
-
-        <form action=""></form>
       </div>
     </div>
   );
