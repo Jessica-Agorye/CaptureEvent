@@ -8,7 +8,11 @@ type FormData = {
 };
 
 export const BookNowPage = () => {
-  const { register, handleSubmit } = useForm<FormData>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>();
   const onSubmit: SubmitHandler<FormData> = (data) => {
     console.log(data);
   };
@@ -45,12 +49,24 @@ export const BookNowPage = () => {
           <br />
           <div>
             <form action="" onSubmit={handleSubmit(onSubmit)}>
-              <input {...register("email")} type="text" placeholder="Email" />
+              <input
+                {...register("email", {
+                  required: true,
+                  validate: (value) => value.includes("@"),
+                })}
+                type="text"
+                placeholder="Email"
+              />
+              {errors.email && <span>This field is required</span>}
               <br />
               <input
-                {...register("password")}
+                {...register("password", {
+                  required: true,
+                  pattern: /^[A-Za-z]+$/i,
+                })}
                 type="password"
                 placeholder="Password"
+                minLength={8}
               />
               <br />
               <button className="border border-amber-600 p-2" type="submit">
