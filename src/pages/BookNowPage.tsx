@@ -57,7 +57,7 @@ export const BookNowPage = () => {
                 type="text"
                 placeholder="Email"
               />
-              {errors.email && <span>This field is required</span>}
+              {errors.email && <span>{errors.email.message}</span>}
               <br />
               <input
                 {...register("password", {
@@ -68,6 +68,7 @@ export const BookNowPage = () => {
                 placeholder="Password"
                 minLength={8}
               />
+              {errors.password && <span>{errors.password.message}</span>}
               <br />
               <button className="border border-amber-600 p-2" type="submit">
                 Confirm Booking
