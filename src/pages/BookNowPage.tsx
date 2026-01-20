@@ -36,10 +36,14 @@ export const BookNowPage = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-20 max-w-6xl mx-auto px-6">
         <div>
           {" "}
-          <img src={planner.image} alt="" />
+          <img
+            className=" w-full h-80 object-cover rounded-lg mb-6 md:mb-0"
+            src={planner.image}
+            alt=""
+          />
         </div>
 
         <div>
