@@ -55,8 +55,13 @@ export const BookNowPage = () => {
             <form action="" onSubmit={handleSubmit(onSubmit)}>
               <input
                 {...register("email", {
-                  required: true,
-                  validate: (value) => value.includes("@"),
+                  required: "Email is required",
+                  validate: (value) => {
+                    if (!value.includes("@")) {
+                      return "Email must include @ symbol";
+                    }
+                    return true;
+                  },
                 })}
                 type="text"
                 placeholder="Email"
@@ -65,12 +70,15 @@ export const BookNowPage = () => {
               <br />
               <input
                 {...register("password", {
-                  required: true,
+                  required: "Password is required",
                   pattern: /^[A-Za-z]+$/i,
+                  minLength: {
+                    value: 8,
+                    message: "Password must be at least 8 characters long",
+                  },
                 })}
                 type="password"
                 placeholder="Password"
-                minLength={8}
               />
               {errors.password && <span>{errors.password.message}</span>}
               <br />
