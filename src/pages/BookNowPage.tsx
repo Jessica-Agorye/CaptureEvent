@@ -11,9 +11,12 @@ export const BookNowPage = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<FormData>();
-  const onSubmit: SubmitHandler<FormData> = (data) => {
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
+    // for asynchronous operations like API calls convert to async function
+
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     console.log(data);
   };
   //makes data properly typed
@@ -71,7 +74,7 @@ export const BookNowPage = () => {
               <input
                 {...register("password", {
                   required: "Password is required",
-                  pattern: /^[A-Za-z]+$/i,
+                  pattern: /^[A-Za-z0-9]+$/,
                   minLength: {
                     value: 8,
                     message: "Password must be at least 8 characters long",
@@ -82,8 +85,12 @@ export const BookNowPage = () => {
               />
               {errors.password && <span>{errors.password.message}</span>}
               <br />
-              <button className="border border-amber-600 p-2" type="submit">
-                Confirm Booking
+              <button
+                disabled={isSubmitting}
+                className="border border-amber-600 p-2"
+                type="submit"
+              >
+                {isSubmitting ? " ....Booking" : "Book Now"}
               </button>
             </form>
           </div>
