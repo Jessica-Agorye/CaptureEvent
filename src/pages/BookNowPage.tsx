@@ -11,13 +11,23 @@ export const BookNowPage = () => {
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors, isSubmitting },
-  } = useForm<FormData>();
+  } = useForm<FormData>({
+    defaultValues: {
+      email: "test@example.com",
+      password: "example123",
+    },
+  });
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     // for asynchronous operations like API calls convert to async function
-
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log(data);
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      throw new Error("Email already taken");
+      console.log(data);
+    } catch {
+      setError("root", { message: "This email is already taken" });
+    }
   };
   //makes data properly typed
 
@@ -92,6 +102,8 @@ export const BookNowPage = () => {
               >
                 {isSubmitting ? " ....Booking" : "Book Now"}
               </button>
+
+              {errors.root && <span>{errors.root.message}</span>}
             </form>
           </div>
         </div>
