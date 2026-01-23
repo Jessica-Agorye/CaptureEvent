@@ -45,28 +45,33 @@ export const BookNowPage = () => {
   }
 
   return (
-    <div>
-      <div className="max-w-6xl mx-auto px-6">
-        <h1 className="text-3xl font-bold text-center mb-8">Book Now</h1>
-        <p className="text-center mb-8">
+    <div className="min-h-screen py-10 bg-gray-50 mb-10">
+      {/* Header */}
+      <div className="max-w-6xl mx-auto px-6 mb-10">
+        <h1 className="text-3xl font-bold text-center mb-4">Book Now</h1>
+        <p className="text-center text-gray-600">
           Complete your booking with the event planner.
         </p>
       </div>
 
+      {/* Grid: Image + Form */}
       <div className="grid grid-cols-1 md:grid-cols-2 md:gap-20 max-w-6xl mx-auto px-6">
+        {/* Planner Image */}
         <div>
           <img
-            className="w-full h-80 object-cover"
+            className="w-full h-80 md:h-96 object-cover rounded-lg shadow-md hover:scale-105 transition-transform duration-200"
             src={planner.image}
             alt={planner.name}
           />
         </div>
 
-        <div>
-          <h2>{planner.name}</h2>
-          <br />
-
-          <form onSubmit={handleSubmit(onSubmit)}>
+        {/* Form */}
+        <div className="mt-8 md:mt-0">
+          <h2 className="text-2xl font-semibold mb-4">{planner.name}</h2>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col gap-4 p-6 border border-gray-200 rounded-lg shadow-2xl bg-white"
+          >
             {/* Email */}
             <input
               type="text"
@@ -76,16 +81,16 @@ export const BookNowPage = () => {
                 validate: (value) =>
                   value.includes("@") || "Email must include @ symbol",
               })}
+              className="p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-amber-400"
             />
-            {errors.email && <span>{errors.email.message}</span>}
-
-            <br />
+            {errors.email && (
+              <span className="text-red-500">{errors.email.message}</span>
+            )}
 
             {/* Event Type */}
             <select
-              {...register("eventType", {
-                required: "Event type is required",
-              })}
+              {...register("eventType", { required: "Event type is required" })}
+              className="p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-amber-400"
             >
               <option value="">Select event type</option>
               <option value="wedding">Wedding</option>
@@ -94,20 +99,19 @@ export const BookNowPage = () => {
               <option value="conference">Conference</option>
               <option value="other">Other</option>
             </select>
-            {errors.eventType && <span>{errors.eventType.message}</span>}
-
-            <br />
+            {errors.eventType && (
+              <span className="text-red-500">{errors.eventType.message}</span>
+            )}
 
             {/* Event Date */}
             <input
               type="date"
-              {...register("eventDate", {
-                required: "Event date is required",
-              })}
+              {...register("eventDate", { required: "Event date is required" })}
+              className="p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-amber-400"
             />
-            {errors.eventDate && <span>{errors.eventDate.message}</span>}
-
-            <br />
+            {errors.eventDate && (
+              <span className="text-red-500">{errors.eventDate.message}</span>
+            )}
 
             {/* Guest Count */}
             <input
@@ -116,36 +120,45 @@ export const BookNowPage = () => {
                 required: "Guest count is required",
                 min: { value: 1, message: "At least 1 guest required" },
               })}
+              className="p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-amber-400"
             />
-            {errors.guestCount && <span>{errors.guestCount.message}</span>}
-
-            <br />
+            {errors.guestCount && (
+              <span className="text-red-500">{errors.guestCount.message}</span>
+            )}
 
             {/* Venue */}
             <input
               type="text"
               placeholder="Event venue"
-              {...register("venue", {
-                required: "Venue is required",
-              })}
+              {...register("venue", { required: "Venue is required" })}
+              className="p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-amber-400"
             />
-            {errors.venue && <span>{errors.venue.message}</span>}
-
-            <br />
+            {errors.venue && (
+              <span className="text-red-500">{errors.venue.message}</span>
+            )}
 
             {/* Additional Notes */}
             <textarea
               placeholder="Additional notes (optional)"
               {...register("additionalNotes")}
+              className="p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-amber-400"
+              rows={4}
             />
 
-            <br />
+            {/* Submit Button */}
+            <div className="flex justify-center mt-4">
+              <button
+                className="w-40 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 disabled:bg-gray-400 transition-colors duration-200"
+                disabled={isSubmitting}
+                type="submit"
+              >
+                {isSubmitting ? "Booking..." : "Book Now"}
+              </button>
+            </div>
 
-            <button disabled={isSubmitting} type="submit">
-              {isSubmitting ? "Booking..." : "Book Now"}
-            </button>
-
-            {errors.root && <span>{errors.root.message}</span>}
+            {errors.root && (
+              <span className="text-red-500">{errors.root.message}</span>
+            )}
           </form>
         </div>
       </div>
