@@ -23,6 +23,15 @@ app.post("/api/bookings", async (req, res) => {
   try {
     console.log("Incoming booking data:", req.body);
 
+    const { name, date, email } = req.body;
+
+    // Basic validation
+    if (!name || !date || !email) {
+      return res.status(400).json({
+        error: "Missing required fields",
+      });
+    }
+
     const booking = await Booking.create(req.body);
 
     res.status(201).json({
