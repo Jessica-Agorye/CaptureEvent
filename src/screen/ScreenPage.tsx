@@ -5,6 +5,7 @@ import MakupArtistes from "../pages/MakeupArtistes";
 import EventPlanning from "../pages/EventPlanning";
 import EventPlannerDetails from "../pages/EventPlannerDetails";
 import { BookNowPage } from "../pages/BookNowPage";
+import Decorator from "../pages/DecoratorsPage";
 const ScreenPage = () => {
   return (
     <Routes>
@@ -12,11 +13,13 @@ const ScreenPage = () => {
       <Route path="/find-photographers" element={<Photography />} />
       <Route path="/find-makeup-artistes" element={<MakupArtistes />} />
       <Route path="/find-event-planners" element={<EventPlanning />} />
+      <Route path="/find-decorators" element={<Decorator />} />
 
       <Route
         path="/find-event-planners/:id"
         element={<EventPlannerDetails />}
       />
+
       <Route path="/book-now/:id" element={<BookNowPage />} />
     </Routes>
   );

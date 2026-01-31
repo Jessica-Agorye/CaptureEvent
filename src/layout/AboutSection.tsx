@@ -76,7 +76,10 @@ const AboutSection = () => {
         <Cards
           title="Decor Experts"
           imageUrl={
-            <div className="h-56 w-full bg-gradient-to-r from-green-200 to-teal-100 rounded-2xl shadow-md hover:scale-105 transition-transform duration-300 flex items-center justify-center text-gray-600 font-medium">
+            <div
+              onClick={() => navigate("/find-decorators")}
+              className="h-56 w-full bg-gradient-to-r from-green-200 to-teal-100 rounded-2xl shadow-md hover:scale-105 transition-transform duration-300 flex items-center justify-center text-gray-600 font-medium"
+            >
               Decoration
             </div>
           }
