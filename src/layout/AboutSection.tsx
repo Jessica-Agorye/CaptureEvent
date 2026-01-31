@@ -88,7 +88,10 @@ const AboutSection = () => {
         <Cards
           title="Caterers"
           imageUrl={
-            <div className="h-56 w-full bg-gradient-to-r from-yellow-200 to-orange-100 rounded-2xl shadow-md hover:scale-105 transition-transform duration-300 flex items-center justify-center text-gray-600 font-medium">
+            <div
+              onClick={() => navigate("/find-caterers")}
+              className="h-56 w-full bg-gradient-to-r from-yellow-200 to-orange-100 rounded-2xl shadow-md hover:scale-105 transition-transform duration-300 flex items-center justify-center text-gray-600 font-medium"
+            >
               Catering
             </div>
           }
