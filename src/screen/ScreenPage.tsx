@@ -7,6 +7,7 @@ import EventPlannerDetails from "../pages/EventPlannerDetails";
 import { BookNowPage } from "../pages/BookNowPage";
 import CaterersPage from "../pages/CaterersPage";
 import Decorator from "../pages/DecoratorsPage";
+import MusicDJsPage from "../pages/MusicDJsPage";
 const ScreenPage = () => {
   return (
     <Routes>
@@ -16,6 +17,7 @@ const ScreenPage = () => {
       <Route path="/find-event-planners" element={<EventPlanning />} />
       <Route path="/find-caterers" element={<CaterersPage />} />
       <Route path="/find-decorators" element={<Decorator />} />
+      <Route path="/find-music-djs" element={<MusicDJsPage />} />
       <Route
         path="/find-event-planners/:id"
         element={<EventPlannerDetails />}

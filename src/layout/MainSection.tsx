@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -47,6 +48,7 @@ const MainSection = () => {
       imageUrl:
         "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=80",
       buttonText: "Explore DJs",
+      link: "/find-music-djs",
     },
     {
       title: "Florists",
@@ -99,9 +101,11 @@ const MainSection = () => {
                   <p className="text-[#555] text-base leading-relaxed mb-6">
                     {service.description}
                   </p>
-                  <button className="px-5 py-2.5 bg-[#FCE1A8] text-[#3E3E3E] rounded-full hover:bg-[#F9D77E] transition duration-200 font-medium">
-                    {service.buttonText}
-                  </button>
+                  <Link to={service.link || "#"}>
+                    <button className="bg-[#FF6B35] text-white py-3 px-6 rounded-lg hover:bg-[#e65a29] transition-all duration-300">
+                      {service.buttonText}
+                    </button>
+                  </Link>
                 </div>
               </div>
             </SwiperSlide>
