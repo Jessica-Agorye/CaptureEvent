@@ -9,7 +9,7 @@ export const Photography = () => {
   const [maxPrice, setMaxPrice] = useState(300);
   const filterByLocation = (location: string) => {
     const filtered = photographers.filter(
-      (photographer) => photographer.city === location
+      (photographer) => photographer.city === location,
     );
     setFilteredData(filtered);
   };
