@@ -10,6 +10,7 @@ import Decorator from "../pages/DecoratorsPage";
 import MusicDJsPage from "../pages/MusicDJsPage";
 import FloristsPage from "../pages/FloristPage";
 import DecoratorsDetails from "../pages/DecoratorsDetails";
+import FloristDetails from "../pages/FloristDetails";
 const ScreenPage = () => {
   return (
     <Routes>
@@ -25,6 +26,7 @@ const ScreenPage = () => {
         path="/find-event-planners/:id"
         element={<EventPlannerDetails />}
       />
+      <Route path="/find-florists/:id" element={<FloristDetails />} />
       <Route path="/find-decorators/:id" element={<DecoratorsDetails />} />
 
       <Route path="/book-now/:id" element={<BookNowPage />} />
