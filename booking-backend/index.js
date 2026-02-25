@@ -2,9 +2,12 @@ const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
 const Booking = require("./models/Bookings");
-
 const app = express();
-const PORT = 4000;
+
+const PORT = process.env.PORT || 5000;
+console.log("Environment variable loaded:", {
+  PORT: process.env.PORT,
+});
 
 // Connect DB
 connectDB();
