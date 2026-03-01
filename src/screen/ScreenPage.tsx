@@ -18,7 +18,8 @@ const ScreenPage = () => {
       <Route path="/find-photographers" element={<Photography />} />
       <Route path="/find-makeup-artistes" element={<MakupArtistes />} />
       <Route path="/find-event-planners" element={<EventPlanning />} />
-      <Route path="/find-caterers" element={<CaterersPage />} />
+
+      <Route path="/find-caterers/:id" element={<CaterersPage />} />
       <Route path="/find-decorators" element={<Decorator />} />
       <Route path="/find-music-djs" element={<MusicDJsPage />} />
       <Route path="/find-florists" element={<FloristsPage />} />
