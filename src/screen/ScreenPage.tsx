@@ -8,6 +8,7 @@ import { BookNowPage } from "../pages/BookNowPage";
 import CaterersPage from "../pages/CaterersPage";
 import Decorator from "../pages/DecoratorsPage";
 import MusicDJsPage from "../pages/MusicDJsPage";
+import MusicDJsDetails from "../pages/MusicDJsDetails";
 import FloristsPage from "../pages/FloristPage";
 import DecoratorsDetails from "../pages/DecoratorsDetails";
 import FloristDetails from "../pages/FloristDetails";
@@ -31,6 +32,7 @@ const ScreenPage = () => {
       <Route path="/find-florists/:id" element={<FloristDetails />} />
       <Route path="/find-decorators/:id" element={<DecoratorsDetails />} />
       <Route path="/find-caterers/:id" element={<CatereersDetails />} />
+      <Route path="/find-music-djs/:id" element={<MusicDJsDetails />} />
 
       <Route path="/book-now/:id" element={<BookNowPage />} />
     </Routes>
