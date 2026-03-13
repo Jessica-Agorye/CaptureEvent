@@ -11,6 +11,7 @@ import MusicDJsPage from "../pages/MusicDJsPage";
 import FloristsPage from "../pages/FloristPage";
 import DecoratorsDetails from "../pages/DecoratorsDetails";
 import FloristDetails from "../pages/FloristDetails";
+import CatereersDetails from "../pages/CatereersDetails";
 const ScreenPage = () => {
   return (
     <Routes>
@@ -19,7 +20,7 @@ const ScreenPage = () => {
       <Route path="/find-makeup-artistes" element={<MakupArtistes />} />
       <Route path="/find-event-planners" element={<EventPlanning />} />
 
-      <Route path="/find-caterers/:id" element={<CaterersPage />} />
+      <Route path="/find-caterers" element={<CaterersPage />} />
       <Route path="/find-decorators" element={<Decorator />} />
       <Route path="/find-music-djs" element={<MusicDJsPage />} />
       <Route path="/find-florists" element={<FloristsPage />} />
@@ -29,6 +30,7 @@ const ScreenPage = () => {
       />
       <Route path="/find-florists/:id" element={<FloristDetails />} />
       <Route path="/find-decorators/:id" element={<DecoratorsDetails />} />
+      <Route path="/find-caterers/:id" element={<CatereersDetails />} />
 
       <Route path="/book-now/:id" element={<BookNowPage />} />
     </Routes>
