@@ -13,6 +13,7 @@ import FloristsPage from "../pages/FloristPage";
 import DecoratorsDetails from "../pages/DecoratorsDetails";
 import FloristDetails from "../pages/FloristDetails";
 import CatereersDetails from "../pages/CatereersDetails";
+import PhotographyDetails from "../pages/PhotographyDetails";
 const ScreenPage = () => {
   return (
     <Routes>
@@ -33,7 +34,7 @@ const ScreenPage = () => {
       <Route path="/find-decorators/:id" element={<DecoratorsDetails />} />
       <Route path="/find-caterers/:id" element={<CatereersDetails />} />
       <Route path="/find-music-djs/:id" element={<MusicDJsDetails />} />
-
+      <Route path="/find-photographers/:id" element={<PhotographyDetails />} />
       <Route path="/book-now/:id" element={<BookNowPage />} />
     </Routes>
   );
