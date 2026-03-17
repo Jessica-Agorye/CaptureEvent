@@ -16,6 +16,7 @@ const MainSection = () => {
       imageUrl:
         "https://images.unsplash.com/photo-1511765224389-37f0e77cf0eb?auto=format&fit=crop&w=900&q=80",
       buttonText: "Explore Photographers",
+      link: "/find-photographers",
     },
     {
       title: "Catering",
@@ -24,6 +25,7 @@ const MainSection = () => {
       imageUrl:
         "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=900&q=80",
       buttonText: "Explore Caterers",
+      link: "/find-caterers",
     },
     {
       title: "Event Planners",
@@ -32,6 +34,7 @@ const MainSection = () => {
       imageUrl:
         "https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=900&q=80",
       buttonText: "Meet Planners",
+      link: "/find-event-planners",
     },
     {
       title: "Decor & Styling",
@@ -40,6 +43,7 @@ const MainSection = () => {
       imageUrl:
         "https://images.unsplash.com/photo-1525610553991-2bede1a236e2?auto=format&fit=crop&w=900&q=80",
       buttonText: "Find Decorators",
+      link: "/find-decorators",
     },
     {
       title: "Music & DJs",
