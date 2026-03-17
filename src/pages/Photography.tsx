@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { photographers } from "../data/photographerData";
 import type { Photographer } from "../data/photographerData";
+import { Link } from "react-router";
 
 export const Photography = () => {
   const [filteredData, setFilteredData] =
@@ -85,31 +86,33 @@ export const Photography = () => {
           {/* Grid layout for cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredData.map((photographer) => (
-              <div
+              <Link
+                to={`/find-photographers/${photographer.id}`}
                 key={photographer.id}
-                className="bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-lg transition"
               >
-                {/* Image */}
-                <img
-                  src={photographer.image}
-                  alt={photographer.name}
-                  className="w-full h-48 object-cover"
-                />
+                <div className="bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-lg transition">
+                  {/* Image */}
+                  <img
+                    src={photographer.image}
+                    alt={photographer.name}
+                    className="w-full h-48 object-cover"
+                  />
 
-                {/* Card content */}
-                <div className="p-4">
-                  <h2 className="text-lg font-semibold text-gray-800">
-                    {photographer.name}
-                  </h2>
-                  <p className="text-gray-500">📍 {photographer.city}</p>
-                  <p className="text-yellow-500 mt-1">
-                    ⭐ {photographer.rating}
-                  </p>
-                  <p className="text-indigo-600 font-medium mt-2">
-                    {photographer.price}
-                  </p>
+                  {/* Card content */}
+                  <div className="p-4">
+                    <h2 className="text-lg font-semibold text-gray-800">
+                      {photographer.name}
+                    </h2>
+                    <p className="text-gray-500">📍 {photographer.city}</p>
+                    <p className="text-yellow-500 mt-1">
+                      ⭐ {photographer.rating}
+                    </p>
+                    <p className="text-indigo-600 font-medium mt-2">
+                      {photographer.price}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </main>
