@@ -1,7 +1,23 @@
 import NavMenu from "../components/NavMenu";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
-  const vendors = ["Photography", "Catering", "Decoration", "Planning"];
+  const vendors = [
+    { name: "Photography", route: "/find-photographers" },
+    { name: "Catering", route: "/find-caterers" },
+    { name: "Decoration", route: "/find-decorators" },
+    { name: "Planning", route: "/find-event-planners" },
+  ];
+  const navigate = useNavigate();
+
+  const handleVendorChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedVendor = e.target.value;
+    if (vendors.find((v) => v.name === selectedVendor)) {
+      navigate(vendors.find((v) => v.name === selectedVendor)?.route || "/");
+    } else {
+      navigate("/");
+    }
+  };
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-amber-50 via-pink-50 to-rose-100 overflow-hidden">
@@ -19,13 +35,16 @@ const HeroSection = () => {
           perfect event — all from one platform."
         </p>
 
-        {/* Vendor Filter */}
+        {/* VendorV Filter */}
         <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
-          <select className="border border-amber-700 bg-white shadow-md rounded-full px-5 py-3 text-gray-800 text-lg focus:ring-2 focus:ring-amber-700 focus:outline-none transition w-64">
+          <select
+            onChange={handleVendorChange}
+            className="border border-amber-700 bg-white shadow-md rounded-full px-5 py-3 text-gray-800 text-lg focus:ring-2 focus:ring-amber-700 focus:outline-none transition w-64"
+          >
             <option value="">Select Vendor</option>
             {vendors.map((vendor, index) => (
-              <option key={index} value={vendor}>
-                {vendor}
+              <option key={index} value={vendor.name}>
+                {vendor.name}
               </option>
             ))}
           </select>
