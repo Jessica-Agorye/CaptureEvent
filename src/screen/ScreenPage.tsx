@@ -14,6 +14,7 @@ import DecoratorsDetails from "../pages/DecoratorsDetails";
 import FloristDetails from "../pages/FloristDetails";
 import CatereersDetails from "../pages/CatereersDetails";
 import PhotographyDetails from "../pages/PhotographyDetails";
+import FaqSection from "../layout/FaqSection";
 const ScreenPage = () => {
   return (
     <Routes>
@@ -36,6 +37,7 @@ const ScreenPage = () => {
       <Route path="/find-music-djs/:id" element={<MusicDJsDetails />} />
       <Route path="/find-photographers/:id" element={<PhotographyDetails />} />
       <Route path="/book-now/:id" element={<BookNowPage />} />
+      <Route path="/faq" element={<FaqSection />} />
     </Routes>
   );
 };

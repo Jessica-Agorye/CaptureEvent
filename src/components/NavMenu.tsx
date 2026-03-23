@@ -1,14 +1,41 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const NavMenu = () => {
-  const navMenu = [
-    { name: "About Us", id: "about-us" },
-    { name: "Services", id: "services" },
-    { name: "FAQ", id: "faq" },
-  ];
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  // Menu items with scroll or route type
+  const navMenu = [
+    { name: "About Us", id: "about-us", type: "scroll" },
+    { name: "Services", id: "services", type: "scroll" },
+    { name: "FAQ", route: "/faq", type: "route" },
+  ];
+
+  // Handle click for scroll or route
+  const handleNavClick = (item: {
+    type: string;
+    id?: string;
+    route?: string;
+  }) => {
+    if (item.type === "scroll" && item.id) {
+      const section = document.getElementById(item.id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      } else {
+        console.warn(`Section with id "${item.id}" not found`);
+      }
+    } else if (item.type === "route" && item.route) {
+      navigate(item.route);
+    } else {
+      console.warn("Invalid navigation item:", item);
+    }
+
+    // Close mobile menu after click
+    setIsOpen(false);
+  };
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-50 transition-all duration-300">
@@ -29,15 +56,14 @@ const NavMenu = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
-          <ul className="flex gap-3 text-lg font-medium">
+          <ul className="flex gap-6 text-lg font-medium">
             {navMenu.map((item) => (
-              <li key={item.id} className="cursor-pointer gap-3 relative group">
-                <a
-                  href={`#${item.id}`}
-                  className="hover:text-amber-800 transition"
-                >
-                  {item.name}
-                </a>
+              <li
+                key={item.name}
+                className="cursor-pointer gap-3 relative group"
+                onClick={() => handleNavClick(item)}
+              >
+                {item.name}
                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-amber-700 transition-all group-hover:w-full"></span>
               </li>
             ))}
@@ -68,12 +94,13 @@ const NavMenu = () => {
         }`}
       >
         <ul className="flex flex-col gap-3 text-lg font-medium">
-          {["About Us", "Services", "FAQ"].map((item) => (
+          {navMenu.map((item) => (
             <li
-              key={item}
+              key={item.name}
               className="cursor-pointer border-b border-amber-100 pb-2 hover:text-amber-800 transition"
+              onClick={() => handleNavClick(item)}
             >
-              {item}
+              {item.name}
             </li>
           ))}
         </ul>
