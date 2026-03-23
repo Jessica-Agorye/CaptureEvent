@@ -66,7 +66,10 @@ const MainSection = () => {
   ];
 
   return (
-    <section className="px-6 md:px-16 lg:px-24 py-20 bg-[#FFF8F4]">
+    <section
+      id="services"
+      className="px-6 md:px-16 lg:px-24 py-20 bg-[#FFF8F4]"
+    >
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-semibold text-[#3E3E3E] mb-8 tracking-wide">
           Discover More Services

@@ -2,6 +2,11 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const NavMenu = () => {
+  const navMenu = [
+    { name: "About Us", id: "about-us" },
+    { name: "Services", id: "services" },
+    { name: "FAQ", id: "faq" },
+  ];
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -24,10 +29,15 @@ const NavMenu = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
-          <ul className="flex gap-6 text-lg font-medium">
-            {["Services", "FAQ"].map((item) => (
-              <li key={item} className="cursor-pointer relative group">
-                {item}
+          <ul className="flex gap-3 text-lg font-medium">
+            {navMenu.map((item) => (
+              <li key={item.id} className="cursor-pointer gap-3 relative group">
+                <a
+                  href={`#${item.id}`}
+                  className="hover:text-amber-800 transition"
+                >
+                  {item.name}
+                </a>
                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-amber-700 transition-all group-hover:w-full"></span>
               </li>
             ))}

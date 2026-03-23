@@ -6,7 +6,10 @@ const AboutSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="bg-gradient-to-b from-amber-50 to-white px-4 sm:px-8 lg:px-20 py-16">
+    <section
+      id="about-us"
+      className="bg-gradient-to-b from-amber-50 to-white px-4 sm:px-8 lg:px-20 py-16"
+    >
       {/* Header */}
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3">
