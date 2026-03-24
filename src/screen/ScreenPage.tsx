@@ -15,6 +15,7 @@ import FloristDetails from "../pages/FloristDetails";
 import CatereersDetails from "../pages/CatereersDetails";
 import PhotographyDetails from "../pages/PhotographyDetails";
 import FaqSection from "../layout/FaqSection";
+import Signup from "../pages/Signup";
 const ScreenPage = () => {
   return (
     <Routes>
