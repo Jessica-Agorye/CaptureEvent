@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const NavMenu = () => {
   const navigate = useNavigate();
@@ -70,12 +71,16 @@ const NavMenu = () => {
           </ul>
 
           <div className="flex gap-3">
-            <button className="bg-amber-700 text-white px-5 py-2 rounded-full hover:bg-amber-800 transition">
-              Sign Up
-            </button>
-            <button className="border border-amber-700 text-amber-700 px-5 py-2 rounded-full hover:bg-amber-700 hover:text-white transition">
-              Sign In
-            </button>
+            <Link to="/sign-up">
+              <button className="bg-amber-700 text-white px-5 py-2 rounded-full hover:bg-amber-800 transition">
+                Sign Up
+              </button>
+            </Link>
+            <Link to="/sign-in">
+              <button className="border border-amber-700 text-amber-700 px-5 py-2 rounded-full hover:bg-amber-700 hover:text-white transition">
+                Sign In
+              </button>
+            </Link>
           </div>
         </div>
 

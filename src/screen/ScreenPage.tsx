@@ -15,11 +15,15 @@ import FloristDetails from "../pages/FloristDetails";
 import CatereersDetails from "../pages/CatereersDetails";
 import PhotographyDetails from "../pages/PhotographyDetails";
 import FaqSection from "../layout/FaqSection";
-import Signup from "../pages/Signup";
+import SignUpForm from "../forms/SignUpForm";
+import SignInForm from "../forms/SignInForm";
+
 const ScreenPage = () => {
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
+      <Route path="/sign-up" element={<SignUpForm />} />
+      <Route path="/sign-in" element={<SignInForm />} />
       <Route path="/find-photographers" element={<Photography />} />
       <Route path="/find-makeup-artistes" element={<MakupArtistes />} />
       <Route path="/find-event-planners" element={<EventPlanning />} />
