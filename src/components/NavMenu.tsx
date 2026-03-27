@@ -120,12 +120,16 @@ const NavMenu = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-3 pt-5">
-          <button className="bg-amber-700 text-white px-5 py-2 rounded-full hover:bg-amber-800 transition">
-            Sign Up
-          </button>
-          <button className="border border-amber-700 text-amber-700 px-5 py-2 rounded-full hover:bg-amber-700 hover:text-white transition">
-            Sign In
-          </button>
+          <Link to="/sign-up">
+            <button className="bg-amber-700 text-white px-5 py-2 rounded-full hover:bg-amber-800 transition">
+              Sign Up
+            </button>
+          </Link>
+          <Link to="/sign-in">
+            <button className="border border-amber-700 text-amber-700 px-5 py-2 rounded-full hover:bg-amber-700 hover:text-white transition">
+              Sign In
+            </button>
+          </Link>
         </div>
       </div>
     </nav>
