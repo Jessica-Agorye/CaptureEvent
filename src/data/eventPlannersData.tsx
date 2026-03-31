@@ -53,4 +53,31 @@ export const Eventplanners: EventPlanners[] = [
     image:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80",
   },
+  {
+    id: 6,
+    name: "Mia Benson",
+    city: "Nairobi",
+    rating: 4.9,
+    price: "$250/session",
+    image:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    id: 7,
+    name: "Tunde Bello",
+    city: "Abuja",
+    rating: 4.6,
+    price: "$190/session",
+    image:
+      "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    id: 8,
+    name: "Fatima Said",
+    city: "Cairo",
+    rating: 4.7,
+    price: "$210/session",
+    image:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80",
+  },
 ];
